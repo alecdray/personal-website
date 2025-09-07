@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/CaribouBlue/goth-stack/internal/logger"
-	"github.com/CaribouBlue/goth-stack/internal/server"
+	"github.com/CaribouBlue/personal-website/internal/logger"
+	"github.com/CaribouBlue/personal-website/internal/server"
 	"github.com/joho/godotenv"
 	"github.com/rs/zerolog"
 )

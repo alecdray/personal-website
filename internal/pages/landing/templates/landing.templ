@@ -1,0 +1,19 @@
+package templates
+
+import (
+	"github.com/CaribouBlue/personal-website/internal/pages/shared/templates"
+	"github.com/CaribouBlue/personal-website/internal/pages/utils"
+)
+
+type LandingPageProps struct {
+}
+
+templ LandingPageComponent(props LandingPageProps) {
+	@templates.PageLayoutComponent(templates.PageLayoutProps{
+		Title: utils.CreatePageTitle("Landing"),
+	}) {
+		<p>
+			Hello World!
+		</p>
+	}
+}

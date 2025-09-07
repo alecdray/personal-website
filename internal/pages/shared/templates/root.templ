@@ -1,13 +1,18 @@
 package templates
 
-templ Root() {
+type RootProps struct {
+	Title string
+}
+
+templ RootComponent(props RootProps) {
 	<!DOCTYPE html>
 	<html>
 		<head>
-			<title>GoTH Stack Template</title>
+			<title>{ props.Title }</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<link rel="icon" sizes="any" type="image/svg+xml" href="/static/favicon.svg"/>
 			<link rel="stylesheet" href="/static/main.css"/>
+			<script src="/static/htmx.min.js"></script>
 		</head>
 		<body class="w-screen h-screen min-w-xs flex flex-col items-center">
 			{ children... }

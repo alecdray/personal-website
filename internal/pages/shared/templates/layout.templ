@@ -1,0 +1,22 @@
+package templates
+
+type PageLayoutProps struct {
+	Title string
+}
+
+templ PageLayoutComponent(props PageLayoutProps) {
+	@RootComponent(RootProps{
+		Title: props.Title,
+	}) {
+		<div
+			class="navbar bg-base-100 shadow-sm"
+		>
+			<a class="btn btn-ghost text-xl" hx-get="/" hx-target="body" hx-push-url="true">Alec's World</a>
+		</div>
+		<div
+			class="w-full max-w-5xl p-6"
+		>
+			{ children... }
+		</div>
+	}
+}

@@ -27,3 +27,6 @@ go.work.sum
 
 # node
 node_modules/
+
+# logs
+*.log

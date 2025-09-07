@@ -1,4 +1,4 @@
-module github.com/CaribouBlue/goth-stack
+module github.com/CaribouBlue/personal-website
 
 go 1.24.1
 
