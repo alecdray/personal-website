@@ -3,8 +3,8 @@ package server
 import (
 	"net/http"
 
-	home "github.com/CaribouBlue/personal-website/internal/pages/home/api"
-	landing "github.com/CaribouBlue/personal-website/internal/pages/landing/api"
+	"github.com/CaribouBlue/personal-website/internal/pages/home"
+	"github.com/CaribouBlue/personal-website/internal/pages/landing"
 )
 
 func NewServer() *http.Server {
@@ -12,11 +12,11 @@ func NewServer() *http.Server {
 
 	rootMux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static/public"))))
 
-	landingApi := landing.NewLandingApi()
-	landingApi.RegisterRoutes(rootMux)
+	landingPage := landing.NewLandingPage()
+	landingPage.Api.RegisterRoutes(rootMux)
 
-	homeApi := home.NewHomeApi()
-	homeApi.RegisterRoutes(rootMux)
+	homePage := home.NewHomePage()
+	homePage.Api.RegisterRoutes(rootMux)
 
 	server := &http.Server{
 		Addr:    "127.0.0.1:8080",
