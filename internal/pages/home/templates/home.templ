@@ -1,0 +1,36 @@
+package templates
+
+import (
+	"github.com/CaribouBlue/personal-website/internal/pages/shared/templates"
+	"github.com/CaribouBlue/personal-website/internal/pages/utils"
+)
+
+type HomePageProps struct {
+}
+
+templ HomePageComponent(props HomePageProps) {
+	@templates.RootComponent(templates.RootProps{
+		Title: utils.CreatePageTitle("Home"),
+	}) {
+		<div
+			class="navbar bg-base-100 shadow-sm"
+		>
+			<div class="navbar-start">
+				<a class="text-4xl font-brand m-3" href="/home" hx-boost="true">Alec's World</a>
+			</div>
+			<div class="navbar-center">
+				<div class="flex gap-8">
+					<a href="/home" hx-boost="true">Home</a>
+					<a href="/code" hx-boost="true">Code</a>
+					<a href="/blog" hx-boost="true">Blog</a>
+				</div>
+			</div>
+			<div class="navbar-end"></div>
+		</div>
+		<div
+			class="w-full max-w-5xl p-6"
+		>
+			<h2 class="text-6xl font-bold">About</h2>
+		</div>
+	}
+}

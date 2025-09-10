@@ -5,15 +5,58 @@ import (
 	"github.com/CaribouBlue/personal-website/internal/pages/utils"
 )
 
+css fixedTextContainer() {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+}
+
+css scrollableContent() {
+	height: 100%;
+	width: 100%;
+	overflow-y: scroll;
+	padding: 20px;
+}
+
 type LandingPageProps struct {
 }
 
 templ LandingPageComponent(props LandingPageProps) {
-	@templates.PageLayoutComponent(templates.PageLayoutProps{
+	@templates.RootComponent(templates.RootProps{
 		Title: utils.CreatePageTitle("Landing"),
 	}) {
-		<p>
-			Hello World!
-		</p>
+		<div
+			class="h-full w-full"
+			x-data="{ scrollPercent: 0, titleScale: 0.01, titleOpacity: 1 }"
+			x-effect="
+				scrollPercent === 1 && window.location.assign('/home');
+				titleScale = Math.max(scrollPercent, 0.01) * 5;
+				titleOpacity = scrollPercent < 0.75 ? 1 : 1 - ((scrollPercent - 0.75) / 0.25);
+			"
+		>
+			<div
+				class={ scrollableContent() }
+				@scroll="scrollPercent = $event.target.scrollTop / ($event.target.scrollHeight - $event.target.offsetHeight)"
+			>
+				<p class="h-[500%]"></p>
+			</div>
+			<div class={ fixedTextContainer() }>
+				<h1
+					x-cloak
+					x-show="scrollPercent < 1"
+					x-bind:style="{transform: `scale(${titleScale})`, opacity: titleOpacity}"
+					class="text-center text-4xl font-brand"
+				>Alec's World</h1>
+			</div>
+			<div
+				class={ fixedTextContainer(), "w-screen h-screen min-w-xs flex flex-col items-center" }
+				x-bind:style="{opacity: 1 - titleOpacity}"
+				hx-get="/home"
+				hx-swap="innerHTML"
+				hx-trigger="load"
+			></div>
+		</div>
 	}
 }

@@ -3,6 +3,7 @@ package server
 import (
 	"net/http"
 
+	home "github.com/CaribouBlue/personal-website/internal/pages/home/api"
 	landing "github.com/CaribouBlue/personal-website/internal/pages/landing/api"
 )
 
@@ -13,6 +14,9 @@ func NewServer() *http.Server {
 
 	landingApi := landing.NewLandingApi()
 	landingApi.RegisterRoutes(rootMux)
+
+	homeApi := home.NewHomeApi()
+	homeApi.RegisterRoutes(rootMux)
 
 	server := &http.Server{
 		Addr:    "127.0.0.1:8080",
