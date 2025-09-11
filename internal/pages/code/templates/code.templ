@@ -1,0 +1,19 @@
+package templates
+
+import (
+	"github.com/CaribouBlue/personal-website/internal/pages/common/templates"
+	"github.com/CaribouBlue/personal-website/internal/pages/common/utils"
+)
+
+type CodePageProps struct {
+}
+
+templ CodePageComponent(props CodePageProps) {
+	@templates.RootComponent(templates.RootProps{
+		Title: utils.CreatePageTitle("Code"),
+	}) {
+		@templates.NavBarComponent(templates.NaveBarProps{
+			ActivePage: templates.CodePage,
+		})
+	}
+}

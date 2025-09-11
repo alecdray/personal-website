@@ -3,6 +3,8 @@ package server
 import (
 	"net/http"
 
+	"github.com/CaribouBlue/personal-website/internal/pages/blog"
+	"github.com/CaribouBlue/personal-website/internal/pages/code"
 	"github.com/CaribouBlue/personal-website/internal/pages/home"
 	"github.com/CaribouBlue/personal-website/internal/pages/landing"
 )
@@ -17,6 +19,12 @@ func NewServer() *http.Server {
 
 	homePage := home.NewHomePage()
 	homePage.Api.RegisterRoutes(rootMux)
+
+	codePage := code.NewCodePage()
+	codePage.Api.RegisterRoutes(rootMux)
+
+	blogPage := blog.NewBlogPage()
+	blogPage.Api.RegisterRoutes(rootMux)
 
 	server := &http.Server{
 		Addr:    "127.0.0.1:8080",

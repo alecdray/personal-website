@@ -1,0 +1,19 @@
+package templates
+
+import (
+	"github.com/CaribouBlue/personal-website/internal/pages/common/templates"
+	"github.com/CaribouBlue/personal-website/internal/pages/common/utils"
+)
+
+type BlogPageProps struct {
+}
+
+templ BlogPageComponent(props BlogPageProps) {
+	@templates.RootComponent(templates.RootProps{
+		Title: utils.CreatePageTitle("Blog"),
+	}) {
+		@templates.NavBarComponent(templates.NaveBarProps{
+			ActivePage: templates.BlogPage,
+		})
+	}
+}
