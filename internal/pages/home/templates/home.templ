@@ -14,23 +14,58 @@ templ HomePageComponent(props HomePageProps) {
 	}) {
 		<div
 			class="navbar bg-base-100 shadow-sm"
+			hx-boost="true"
 		>
 			<div class="navbar-start">
-				<a class="text-4xl font-brand m-3" href="/home" hx-boost="true">Alec's World</a>
+				<a class="text-4xl font-brand p-3 hover:hue-rotate-180" href="/home">Alec's World</a>
 			</div>
 			<div class="navbar-center">
-				<div class="flex gap-8">
-					<a href="/home" hx-boost="true">Home</a>
-					<a href="/code" hx-boost="true">Code</a>
-					<a href="/blog" hx-boost="true">Blog</a>
+				<div class="flex gap-5">
+					<a href="/home" class="p-3 hover:hue-rotate-180 blur-xs skew-x-24 hover:blur-none hover:skew-x-0">Home</a>
+					<a href="/code" class="p-3 hover:hue-rotate-180">Code</a>
+					<a href="/blog" class="p-3 hover:hue-rotate-180">Blog</a>
 				</div>
 			</div>
-			<div class="navbar-end"></div>
+			<div class="navbar-end">
+				<div class="flex m-3">
+					<a
+						href="https://github.com/alecdray"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="p-3 hover:hue-rotate-180"
+					>
+						<i class="fa-brands fa-github fa-xl"></i>
+					</a>
+					<a
+						href="https://www.linkedin.com/in/draymorealec/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="p-3 hover:hue-rotate-180"
+					>
+						<i class="fa-brands fa-linkedin fa-xl"></i>
+					</a>
+				</div>
+			</div>
 		</div>
 		<div
 			class="w-full max-w-5xl p-6"
 		>
-			<h2 class="text-6xl font-bold">About</h2>
+			<div
+				class="flex flex-col w-full mt-20 gap-20"
+			>
+				<div class="flex flex-col w-full gap-5">
+					<h2 class="text-6xl font-bold">Where am I?</h2>
+					<p class="text-xl">This is my world, a place for me to mess around with different ideas, share things I'm interested in, and show off some stuff I've made.</p>
+				</div>
+				<div class="flex flex-col w-full gap-5">
+					<h2 class="text-6xl font-bold">Who am I?</h2>
+					<p class="text-xl">You're you of course!</p>
+				</div>
+				<div class="flex flex-col w-full gap-5">
+					<h2 class="text-6xl font-bold">Who are you?</h2>
+					<p class="text-xl">Oh, I'm Alec, a software engineer based in NYC. I love music deeply, enjoy cooking for others, and have more house plants than I care to count. You'll have to poke around here to learn more.</p>
+				</div>
+			</div>
 		</div>
 	}
 }

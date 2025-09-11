@@ -24,6 +24,7 @@ go.work.sum
 
 # templ
 *_templ.go
+*_templ.txt
 
 # node
 node_modules/
